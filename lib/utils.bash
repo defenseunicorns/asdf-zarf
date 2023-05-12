@@ -13,7 +13,6 @@ fail() {
 
 curl_opts=(-fsSL)
 
-# NOTE: You might want to remove this if zarf is not hosted on GitHub releases.
 if [ -n "${GITHUB_API_TOKEN:-}" ]; then
 	curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
 fi
@@ -26,7 +25,7 @@ sort_versions() {
 list_github_tags() {
 	git ls-remote --tags --refs "$GH_REPO" |
 		grep -o 'refs/tags/.*' | cut -d/ -f3- |
-		sed 's/^v//' # NOTE: You might want to adapt this sed to remove non-version strings from tags
+		sed 's/^v//'
 }
 
 list_all_versions() {
@@ -38,18 +37,18 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-  # we must get the os/architecture.
-  ARCH=$(uname -m)
-  OS=$(uname -s)
+	# we must get the os/architecture.
+	ARCH=$(uname -m)
+	OS=$(uname -s)
 
-  # Zarf uses the string "amd64" if arch is x86_64
-  if [[ "${ARCH}" == "x86_64" ]]; then
-    ARCH="amd64"
-  fi
+	# Zarf uses the string "amd64" if arch is x86_64
+	if [[ "${ARCH}" == "x86_64" ]]; then
+		ARCH="amd64"
+	fi
 
-  arch="${ARCH}"
-  os="${OS}"
-  url="${GH_REPO}/releases/download/v${version}/zarf_v${version}_${os}_${arch}"
+	arch="${ARCH}"
+	os="${OS}"
+	url="${GH_REPO}/releases/download/v${version}/zarf_v${version}_${os}_${arch}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
