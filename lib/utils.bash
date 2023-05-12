@@ -41,8 +41,18 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for zarf
-	url="$GH_REPO/archive/v${version}.tar.gz"
+  # we must get the os/architecture.
+  ARCH=$(uname -m)
+  OS=$(uname -s)
+
+  # Zarf uses the string "amd64" if arch is x86_64
+  if [[ "${ARCH}" == "x86_64" ]]; then
+    ARCH="amd64"
+  fi
+
+  arch="${ARCH}"
+  os="${OS}"
+  url="${GH_REPO}/releases/download/v${version}/zarf_v${version}_${os}_${arch}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
