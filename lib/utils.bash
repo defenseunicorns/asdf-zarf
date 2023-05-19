@@ -45,7 +45,8 @@ download_release() {
 	if [[ "${ARCH}" == "x86_64" ]]; then
 		ARCH="amd64"
 	elif
-		[[ "${ARCH}" == "aarch64" ]]; then
+		[[ "${ARCH}" == "aarch64" ]]
+	then
 		ARCH="arm64"
 	fi
 
