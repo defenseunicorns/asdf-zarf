@@ -5,7 +5,7 @@
 
 [zarf](https://github.com/zarf-dev/zarf) plugin for the [asdf version manager](https://asdf-vm.com).
 
-This proof-of-concept ASDF plugin is not officially supported by the Zarf team. Use at your own risk.
+This ASDF plugin is not officially supported by the Zarf team. Use at your own risk. That being said, it has been in use in a variety of environments for several years now and is considered very stable.
 
 </div>
 
