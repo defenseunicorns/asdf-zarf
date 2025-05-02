@@ -3,7 +3,7 @@
 # asdf-zarf [![Build](https://github.com/defenseunicorns/asdf-zarf/actions/workflows/build.yml/badge.svg)](https://github.com/defenseunicorns/asdf-zarf/actions/workflows/build.yml) [![Lint](https://github.com/defenseunicorns/asdf-zarf/actions/workflows/lint.yml/badge.svg)](https://github.com/defenseunicorns/asdf-zarf/actions/workflows/lint.yml)
 
 
-[zarf](https://github.com/defenseunicorns/zarf) plugin for the [asdf version manager](https://asdf-vm.com).
+[zarf](https://github.com/zarf-dev/zarf) plugin for the [asdf version manager](https://asdf-vm.com).
 
 This proof-of-concept ASDF plugin is not officially supported by the Zarf team. Use at your own risk.
 
