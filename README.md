@@ -39,7 +39,7 @@ asdf list-all zarf
 asdf install zarf X.Y.Z
 
 # Set a version globally (on your ~/.tool-versions file)
-asdf global zarf X.Y.Z
+asdf set -u zarf X.Y.Z
 
 # Now zarf commands are available
 zarf version
