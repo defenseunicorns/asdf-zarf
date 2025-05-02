@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-GH_REPO="https://github.com/defenseunicorns/zarf"
+GH_REPO="https://github.com/zarf-dev/zarf"
 TOOL_NAME="zarf"
 TOOL_TEST="zarf version"
 
